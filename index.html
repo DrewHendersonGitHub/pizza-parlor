@@ -11,47 +11,76 @@
   <div class="container">
     <h1>Pizza Store</h1>
     <form id="pizza-form">
-pick 1
+
+      Size:
+      <select class="form-control" id="size">
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+      pick a stlye:
       <select class="form-control" id="crust">
         <option>Regular</option>
         <option>Thin Crust</option>
         <option>Deep-Dish (+$1.00)</option>
       </select>
-      pick 1
+      pick a sauce
       <select class="form-control" id="sauce">
         <option>Tomato</option>
         <option>Pesto</option>
         <option>Ranch</option>
         <option>No Sauce</option>
       </select>
-      pick 1
+      pick a cheese
       <select class="form-control" id="cheese">
         <option>Cheese</option>
         <option>No Cheese</option>
         <option>Extra Cheese (+$1.00)</option>
       </select>
-+1.00
-      <select class="form-control" id="meat">
-        <option>Pepperoni</option>
-        <option>Sausage</option>
-        <option>Bacon</option>
-        <option>Canadian Bacon</option>
-        <option>Chicken</option>
-      </select>
-+.50
-      <select class="form-control" id="other">
-        <option>Mushroom</option>
-        <option>Onion</option>
-        <option>Olive</option>
-        <option>Green Pepper</option>
-        <option>Pineapple</option>
-        <option>Anchovies</option>
-        <option>Jalapeño</option>
-      </select>
+
+      select meat +1.00
+      <div class="checkbox">
+        <label><input type="checkbox" id="pepperoni" name="meat" value="pepperoni">Pepperoni</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="sausage" name="meat" value="sausage">Sausage</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="bacon" name="meat" value="bacon">Bacon</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="canadian-bacon" name="meat" value="canadian-bacon">Canadian Bacon</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="chicken" name="meat" value="chicken">Chicken</label>
+      </div>
+
+      other toppings +.50
+      <div class="checkbox">
+        <label><input type="checkbox" id="mushroom" name="meat" value="mushroom">Mushroom</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="onion" name="meat" value="onion">Onion</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="olive" name="meat" value="olive">Olive</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="green-pepper" name="meat" value="green-pepper">Green Pepper</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="pineapple" name="meat" value="pineapple">Pineapple</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="anchovies" name="meat" value="anchovies">Anchovies</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="jalepeno" name="meat" value="jalepeno">Jalapeño</label>
+      </div>
       
       <button>Place Order</button>
-      
     </form>
+    <a href="payment.html"><button>go</button></a>
   </div>
 </body>
 </html>
