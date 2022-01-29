@@ -1,0 +1,11 @@
+.show-meat, .show-other {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 5%;
+}

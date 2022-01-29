@@ -64,7 +64,14 @@ function getOther() {
   return other;
 }
 
-function attachEventListeners() {}
+function attachEventListeners() {
+  $("#show-meat").click(function() {
+    $(".show-meat").toggle();
+  })
+  $("#show-other").click(function() {
+    $(".show-other").toggle();
+  })
+}
 
 $(document).ready(function() {
   attachEventListeners();
