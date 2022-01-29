@@ -8,7 +8,14 @@ function Pizza(size, crust, sauce, cheese, meat, other) {
 }
 
 Pizza.prototype.getCost = function() {
-  return ((10 + this.toppings.length) * this.size);
+  let cost = (10 + this.meat.length + this.other.length * 0.5) * parseFloat(this.size);
+  if (this.crust === "deep-dish") {
+    cost++;
+  }
+  if (this.cheese === "extra-cheese") {
+    cost++;
+  }
+  return cost.toFixed(2);
 }
 
 function getMeat() {
@@ -65,7 +72,7 @@ $(document).ready(function() {
     event.preventDefault();
     
     let pizza = new Pizza($("#size").val(), $("#crust").val(), $("#sauce").val(), $("#cheese").val(), getMeat(), getOther())
-    console.log(pizza);
+    console.log(pizza, pizza.getCost());
     
   });
 });
