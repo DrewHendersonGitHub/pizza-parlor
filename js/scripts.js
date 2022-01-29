@@ -12,7 +12,7 @@ Pizza.prototype.getCost = function() {
   if (this.crust === "deep-dish") {
     cost++;
   }
-  if (this.cheese === "extra-cheese") {
+  if (this.cheese === "extra cheese") {
     cost++;
   }
   return cost.toFixed(2);
@@ -30,7 +30,7 @@ function getMeat() {
     meat.push("bacon");
   }
   if ($('#canadian-bacon').is(":checked")) {
-    meat.push("canadian-bacon");
+    meat.push("Canadian bacon");
   }
   if ($('#chicken').is(":checked")) {
     meat.push("chicken");
@@ -50,7 +50,7 @@ function getOther() {
     other.push("olive");
   }
   if ($('#green-pepper').is(":checked")) {
-    other.push("green-pepper");
+    other.push("green pepper");
   }
   if ($('#pineapple').is(":checked")) {
     other.push("pineapple");
@@ -58,10 +58,45 @@ function getOther() {
   if ($('#anchovies').is(":checked")) {
     other.push("anchovies");
   }
-  if ($('#jalepeno').is(":checked")) {
-    other.push("jalepeno");
+  if ($('#jalapeño').is(":checked")) {
+    other.push("jalapeño");
   }
   return other;
+}
+
+function showPizza(pizza) {
+  let size = "";
+  if (pizza.size === "0.75") {
+    size = "Small"
+  }
+  else if (pizza.size === "1") {
+    size = "Medium"
+  }
+  else {
+    size = "Large"
+  }
+  let pizzaHtml = "<h4>Order a " + size + ", " + pizza.crust + " pizza with " + pizza.sauce + " sauce, " + pizza.cheese;
+  if (pizza.meat.length === 0) {
+    pizzaHtml = pizzaHtml + ", no meat";
+  }
+  pizza.meat.forEach(function(element) {
+    pizzaHtml = pizzaHtml + ", " + element;
+  });
+  if (pizza.other.length === 0) {
+    pizzaHtml = pizzaHtml + ", and no other toppings";
+  }
+  let count = 0;
+  pizza.other.forEach(function(element) {
+    if (pizza.other.length - count > 1) {
+      pizzaHtml = pizzaHtml + ", " + element;
+    }
+    else {
+      pizzaHtml = pizzaHtml + ", and " + element;
+    }
+    count++;
+  });
+  pizzaHtml = pizzaHtml + " for $" + pizza.getCost() + "?"
+  return pizzaHtml;
 }
 
 function attachEventListeners() {
@@ -77,9 +112,7 @@ $(document).ready(function() {
   attachEventListeners();
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
-    
     let pizza = new Pizza($("#size").val(), $("#crust").val(), $("#sauce").val(), $("#cheese").val(), getMeat(), getOther())
-    console.log(pizza, pizza.getCost());
-    
+    $("#show-pizza").html(showPizza(pizza));    
   });
 });
