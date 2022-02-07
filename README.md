@@ -18,7 +18,7 @@ _You can make a pizza by choosing from a list of sizes and various toppings. Dep
 
 ## Setup/Installation Requirements
 
-* _Clone or download all the files from```https://github.com/DrewHendersonGitHub/pizza-parlor```._
+* _Clone or download all the files from ```https://github.com/DrewHendersonGitHub/pizza-parlor```._
 * _Open the index.html inside a web browser._
 
 ## Known Bugs
@@ -50,9 +50,72 @@ Expected Output: Pizza { size: '1', crust: 'deep-dish', sauce: 'tomato', cheese:
 
 Describe: getCost()
 
-Test: "It should return the amount a Pizza would cost based on toppings and size"
+Test: "Buying a small pizza with the least amount of toppings will be the cheapest"
 \
-Code: const myPizza = new Pizza("1", "deep-dish", "tomato", "extra-cheese", ["pepperoni", "sausage"], ["mushroom", "olive", "pineapple"]);
+Code: const myPizza = new Pizza("0.75", "regular", "ranch", "no cheese", [], []);
 myPizza.getCost();
 \
-Expected Output: 15.50
+Expected Output: 7.50
+
+Test: "Changing the size will multiply the total price of the pizza"
+\
+Code: const myPizza = new Pizza("1.25", "regular", "ranch", "no cheese", [], []);
+myPizza.getCost();
+\
+Expected Output: 12.50
+
+Test: "Selecting deep dish crust will make the price 1 dollar higher"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "ranch", "no cheese", [], []);
+myPizza.getCost();
+\
+Expected Output: 13.50
+
+Test: "Changing the sauce will not affect the price"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "pesto", "no cheese", [], []);
+myPizza.getCost();
+\
+Expected Output: 13.50
+
+Test: "Selecting extra cheese will increase the price by 1 dollar"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "ranch", "extra cheese", [], []);
+myPizza.getCost();
+\
+Expected Output: 14.50
+
+Test: "Each meat topping will increase the price by 1 dollar for a medium pizza"
+\
+Code: const myPizza = new Pizza("1", "deep-dish", "ranch", "extra cheese", ["pepperoni", "chicken"], []);
+myPizza.getCost();
+\
+Expected Output: 14.00
+
+Test: "Each meat topping will increase the price by 1.25 dollars for a large pizza"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "ranch", "extra cheese", ["pepperoni", "chicken"], []);
+myPizza.getCost();
+\
+Expected Output: 17.00
+
+Test: "Each other topping will increase the price by 50 cents for a medium pizza"
+\
+Code: const myPizza = new Pizza("1", "deep-dish", "ranch", "extra cheese", ["pepperoni", "chicken"], ["green-pepper", "jalapeño"]);
+myPizza.getCost();
+\
+Expected Output: 15.00
+
+Test: "Each other topping will increase the price by 62.5 cents for a large pizza"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "ranch", "extra cheese", ["pepperoni", "chicken"], ["green-pepper", "jalapeño"]);
+myPizza.getCost();
+\
+Expected Output: 18.25
+
+Test: "A large pizza with all the available toppings will be the most expensive"
+\
+Code: const myPizza = new Pizza("1.25", "deep-dish", "pesto", "cheese", ["pepperoni", "sausage", "bacon", "canadian-bacon", "chicken"], ["mushroom", "onion", "olive", "green-pepper", "pineapple", "anchovies", "jalapeño"]);
+myPizza.getCost();
+\
+Expected Output: 24.13
